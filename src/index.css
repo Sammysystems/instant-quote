@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-primary-bg: #FAFAF8;
+  --color-secondary-surface: #F2F0EA;
+  --color-dark-surface: #0D1A0E;
+  --color-primary-text: #1A1C1A;
+  --color-secondary-text: #6B7A6E;
+  --color-brand-accent: #2D6A30;
+  --color-cta-highlight: #E8A020;
+  --color-card-border: #E5E3DC;
+
+  --animate-marquee: marquee var(--duration, 40s) linear infinite;
+  --animate-marquee-reverse: marquee-reverse var(--duration, 40s) linear infinite;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-100% - var(--gap, 1rem))); }
+  }
+
+  @keyframes marquee-reverse {
+    from { transform: translateX(calc(-50% - var(--gap, 1rem) / 2)); }
+    to { transform: translateX(0); }
+  }
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-primary-bg);
+    color: var(--color-primary-text);
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Custom styles for smooth experience */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar to match the premium theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F2F0EA;
+}
+::-webkit-scrollbar-thumb {
+  background: #2D6A30;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1e4620;
+}
